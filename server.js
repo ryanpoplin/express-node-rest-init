@@ -3,12 +3,10 @@
 process.env.PORT = 8080;
 // process.env.IP = ...
 
-const express = require("express");
-const app = express();
-
-app.use("/", function(req, res) {
-	res.send("Hello Express Application!");
-});
+// express is instantiated from our express.js configuration file
+// require the module in, and invoke the function it provides
+// which returns our express applicatoin instance
+const app = require("./config/express")();
 
 // can add process.env.IP, too...
 app.listen(process.env.PORT);
