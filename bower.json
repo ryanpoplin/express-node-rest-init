@@ -1,0 +1,22 @@
+{
+  "name": "mean-todo",
+  "description": "MEAN TODOS",
+  "main": "index.js",
+  "authors": [
+    "BFOX"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0"
+  }
+}

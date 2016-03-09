@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>MEAN TODOS</title>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+	<input type="text" id="myInput">
+	<input type="button" id="myButton" value="Show Name">
+	<script type="text/javascript">
+		const myButton = document.getElementById("myButton");
+		function outputText() {
+			const myInputText = document.getElementById("myInput").value;
+			alert(myInputText);
+		}
+		myButton.addEventListener("click", outputText);
+	</script>
+<!-- 	<div>
+		<label>Name:</label>
+		<input type="text" ng-model="yourName" placeholder="Enter a name here">
+		<hr>
+		<h1>Hello {{yourName}}!</h1>
+	</div> -->
+</body>
+</html>
