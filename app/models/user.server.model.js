@@ -5,6 +5,7 @@ const mongoose = require("mongoose"), // require the std. mongoose module
 
 // our custom User schema (editable keys)
 const UserSchema = new Schema({
+	// edit this!
 	name: String,
 	email: String,
 	username: String, 

@@ -12,6 +12,14 @@ module.exports = function() {
 		extended: true // encode our url's...
 	}));
 	app.use(bodyParser.json()); // expect JSON data format
+	// CORS (TODO: research this a lot more...)
+	app.use(function(req, res, next) {
+		res.setHeader('Access-Control-Allow-Origin', '*');
+		res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+		res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+		next();
+	});
+
 	app.use(express.static("./public")); // expect all static files to come from 
 										 // ./public dir
 
