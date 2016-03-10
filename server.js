@@ -8,19 +8,18 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 // returns an config object for our server port and database URI
 // based on a development or production setting
 const config = require("./config/config"), // get the development or production config
-      mongoose = require("./config/mongoose"), // 
-      express = require("./config/express");
+      mongoose = require("./config/mongoose"), // get our function to invoke for our mongoose database connection
+      express = require("./config/express"); // grab our configured express application
 
-const db = mongoose(),
+const db = mongoose(), // invoke the module's function to connect to our mongodb
 	  // express is instantiated from our express.js configuration file
 	  // require the module in, and invoke the function it provides
-	  // which returns our express applicatoin instance
-      app = express();
+	  // which returns our express application instance
+      app = express(); // just get our express app
 
-// can add process.env.IP, too...
 app.listen(config.port);
 
-// da fuk are we doing here?
-module.exports = app;
+// not sure why this is here...
+// module.exports = app;
 
 console.log("Server is running at http://localhost:" + config.port);
