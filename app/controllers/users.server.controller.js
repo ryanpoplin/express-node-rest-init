@@ -1,8 +1,7 @@
 "use strict";
 
 // require our mongoose User model
-// might need to refactor this...(TODO)
-const User = require("mongoose").model("User");
+const User = require("../models/user.server.model");
 
 // export a create method that will act as a middleware...
 exports.create = function(req, res, next) {
