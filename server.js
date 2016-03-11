@@ -19,7 +19,4 @@ const db = mongoose(), // invoke the module's function to connect to our mongodb
 
 app.listen(config.port);
 
-// not sure why this is here...
-// module.exports = app;
-
 console.log("Server is running at http://localhost:" + config.port);
