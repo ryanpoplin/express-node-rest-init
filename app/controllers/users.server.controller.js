@@ -4,7 +4,7 @@
 const User = require("../models/user.server.model");
 
 // export a create method that will act as a middleware...
-exports.create = function(req, res, next) {
+module.exports.create = function(req, res, next) {
 	// create a user with the req.body data (parsed via the body-parser module's middleware)
 	// nice to see in the terminal for now...
 	console.log(req.body);
@@ -20,3 +20,4 @@ exports.create = function(req, res, next) {
 		}
 	});
 };
+
