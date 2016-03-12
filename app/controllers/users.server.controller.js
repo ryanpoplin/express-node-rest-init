@@ -3,6 +3,12 @@
 // require our mongoose User model
 const User = require("../models/user.server.model");
 
+// TODO: research more on next() passed along via express
+
+// CHECK OUT REVEAL MODULE PATTERN: E.O.W: module.exports = {create: create, list: list};
+
+// CREATE
+
 // export a create method that will act as a middleware...
 module.exports.create = function(req, res, next) {
 	// create a user with the req.body data (parsed via the body-parser module's middleware)
@@ -20,4 +26,50 @@ module.exports.create = function(req, res, next) {
 		}
 	});
 };
+
+// READ
+
+// find all users (only useful in certain situations in API's)
+module.exports.list = function(req, res, next) {
+	User.find({}, function(err, users) { // {} means get them all, no arguements
+		if (err) {
+			return next(err); // handle this error
+		} else {
+			res.json(users); // return all the users from the database to the client
+		}
+	});
+};
+
+// route middleware
+// get a specific user data via id, and add that data onto the req object via mutating it, and adding a .user property...
+module.exports.userByID = function(req, res, next, id) {
+
+	console.log("userByID");
+
+	// good example of refactoring with promises...
+	User.findOne({ // mongoose for find one document from the collection
+		_id: id
+	}, function(err, user) { // TODO: refactor with promise
+		if (err) {
+			return next(err);
+		} else {
+			req.user = user;
+			next();
+		}
+	});
+};
+
+// get the req.user object and send it to the client
+module.exports.read = function(req, res) {
+
+	console.log("read");
+
+	res.json(req.user);
+};
+
+// UPDATE
+
+
+
+// DELETE
 

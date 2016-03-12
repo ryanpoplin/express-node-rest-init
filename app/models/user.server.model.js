@@ -13,4 +13,6 @@ const UserSchema = new Schema({
 });
 
 // create and export our User mongoose model schema
+// this will be the name of the collection stored in the todos database: users, etc...
+// s is added to the end of the collection automatically via mongoose module
 module.exports = mongoose.model("User", UserSchema);
