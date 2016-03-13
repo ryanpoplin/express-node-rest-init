@@ -9,5 +9,5 @@ module.exports = function(app) { // will pass in our express app instance
 		// route middleware method === param()
 	app.param("userId", users.userByID); // I.O.W: users.userByID will execute before users.read executes
 	// request parameter === :
-	app.route("/users/:userId").get(users.read); // pass in a request parameter as an arg.
+	app.route("/users/:userId").get(users.read).put(users.update).delete(users.delete); // pass in a request parameter as an arg.
 };

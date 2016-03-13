@@ -44,7 +44,7 @@ module.exports.list = function(req, res, next) {
 // get a specific user data via id, and add that data onto the req object via mutating it, and adding a .user property...
 module.exports.userByID = function(req, res, next, id) {
 
-	console.log("userByID");
+	// console.log("userByID");
 
 	// good example of refactoring with promises...
 	User.findOne({ // mongoose for find one document from the collection
@@ -53,7 +53,7 @@ module.exports.userByID = function(req, res, next, id) {
 		if (err) {
 			return next(err);
 		} else {
-			req.user = user;
+			req.user = user; // set user data
 			next();
 		}
 	});
@@ -62,14 +62,33 @@ module.exports.userByID = function(req, res, next, id) {
 // get the req.user object and send it to the client
 module.exports.read = function(req, res) {
 
-	console.log("read");
+	// console.log("read");
 
-	res.json(req.user);
+	res.json(req.user); // get our data
 };
 
 // UPDATE
 
-
+module.exports.update = function(req, res, next) { // update a certain user
+	User.findByIdAndUpdate(req.user.id, req.body, function(err, user) { // auto alter req.body differences from current document data
+		if (err) {
+			return next(err);
+		} else {
+			res.json(user); // get our data
+		}
+	});
+};
 
 // DELETE
 
+// delete certain user
+module.exports.delete = function(req, res, next) {
+	req.user.remove(function(err) { // since our user has been added to the req.user
+		// we can reference that value to remove it from our database
+		if (err) {
+			return next(err);
+		} else {
+			res.json(req.user); // get our user who was deleted
+		}
+	});
+};
