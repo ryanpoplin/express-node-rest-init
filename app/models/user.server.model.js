@@ -6,11 +6,15 @@ const mongoose = require("mongoose"), // require the std. mongoose module
 // our custom User schema (editable keys)
 const UserSchema = new Schema({
 	// edit this!
-	name: String,
-	email: String,
-	username: String, 
-	password: String
+	name: {type: String, unique: true, required: true}, // all usernames must be unique
+	email: {type: String, unique: true, required: true, index: true}, // 2ndary index
+	username: {type: String, unique: true, required: true}, 
+	password: {type: String, unique: false, required: true}
 });
+
+// UserSchema.pre("save", function(next) { // also post for middleware
+// 	// conditions
+// });
 
 // create and export our User mongoose model schema
 // this will be the name of the collection stored in the todos database: users, etc...
