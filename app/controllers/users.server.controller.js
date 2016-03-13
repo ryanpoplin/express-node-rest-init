@@ -5,6 +5,7 @@ const User = require("../models/user.server.model");
 
 // TODO: research more on next() passed along via express
 
+// TODO: 
 // CHECK OUT REVEAL MODULE PATTERN: E.O.W: module.exports = {create: create, list: list};
 
 // CREATE
