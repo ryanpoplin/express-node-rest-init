@@ -9,9 +9,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 // based on a development or production setting
 const config = require("./config/config"), // get the development or production config
       mongoose = require("./config/mongoose"), // get our function to invoke for our mongoose database connection
-      express = require("./config/express"); // grab our configured express application
+      express = require("./config/express"), // grab our configured express application
+      // passport = require("./config/passport"); // grab the passport.js config file
 
-const db = mongoose(), // invoke the module's function to connect to our mongodb
+const db = mongoose(),
+	  // thePassport = passport(), // get instance of our passport functionality
+	  // invoke the module's function to connect to our mongodb
 	  // express is instantiated from our express.js configuration file
 	  // require the module in, and invoke the function it provides
 	  // which returns our express application instance
@@ -19,4 +22,7 @@ const db = mongoose(), // invoke the module's function to connect to our mongodb
 
 app.listen(config.port);
 
+// just a log to let us know the server.js file was read.
 console.log("Server is running at http://localhost:" + config.port);
+
+console.log("Sometimes, I fucking hate Git because it fucks up for no reason and give you cryptic data to go figure the cluster fuck out with...");
