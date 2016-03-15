@@ -9,7 +9,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 // based on a development or production setting
 const config = require("./config/config"), // get the development or production config
       mongoose = require("./config/mongoose"), // get our function to invoke for our mongoose database connection
-      express = require("./config/express"), // grab our configured express application
+      express = require("./config/express"); // grab our configured express application
       // passport = require("./config/passport"); // grab the passport.js config file
 
 const db = mongoose(),

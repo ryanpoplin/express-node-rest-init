@@ -2,7 +2,7 @@
 
 const express = require("express"), // grab our express module
 	  config = require("./config"), // grab our config file
-	  bodyParser = require("body-parser"), // grab our body-parser module
+	  bodyParser = require("body-parser"); // grab our body-parser module
 	  // jwt = require("jwt-simple"); // not using this currently...
 	  // passport = require("passport"); // get the passport module 
 
