@@ -40,8 +40,6 @@ module.exports = function() {
 	// NOTE: make sure postman content-type is set to JSON!!!
 	require("../app/routes/users.server.routes")(app); // grab the user.server.routes function
 	
-	console.log("I'm editing files, and Git is not picking up on them...why?");
-
 	// return the express app for the server.js file
 	return app;
 };

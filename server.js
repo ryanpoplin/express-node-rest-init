@@ -24,5 +24,3 @@ app.listen(config.port);
 
 // just a log to let us know the server.js file was read.
 console.log("Server is running at http://localhost:" + config.port);
-
-console.log("Sometimes, I fucking hate Git because it fucks up for no reason and give you cryptic data to go figure the cluster fuck out with...");
