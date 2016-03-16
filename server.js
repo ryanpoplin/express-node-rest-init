@@ -10,10 +10,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || "development";
 const config = require("./config/config"), // get the development or production config
       mongoose = require("./config/mongoose"), // get our function to invoke for our mongoose database connection
       express = require("./config/express"); // grab our configured express application
-      // passport = require("./config/passport"); // grab the passport.js config file
 
 const db = mongoose(),
-	  // thePassport = passport(), // get instance of our passport functionality
 	  // invoke the module's function to connect to our mongodb
 	  // express is instantiated from our express.js configuration file
 	  // require the module in, and invoke the function it provides
