@@ -26,11 +26,19 @@ module.exports = function() {
 	app.set("views", "./app/views"); // expect our views to come from ./app/views dir
 	app.set("view engine", "ejs"); // set template engine: ejs module
 
-	// not worried about the index route just yet...
-	// require("../app/routes/index.server.routes")(app); 
-	// NOTE: make sure postman content-type is set to JSON!!!
-	require("../app/routes/users.server.routes")(app); // grab the user.server.routes function
+	// express.Router() is like mini-application on its own; only with routing functionalities though...
+	const indexRouter = express.Router();
+	// load in our index routes
+	require("../app/routes/index.server.routes")(indexRouter);
+
+	const usersRouter = express.Router();
+	// load in our users routes
+	// NOTE: make sure postman content-type is set to JSON
+	require("../app/routes/users.server.routes")(usersRouter); // grab the user.server.routes function
 	
+	app.use("/index", indexRouter); // 
+	app.use("/users", usersRouter); // 
+
 	// return the express app for the server.js file
 	return app;
 };

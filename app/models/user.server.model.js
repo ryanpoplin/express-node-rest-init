@@ -7,9 +7,10 @@ const mongoose = require("mongoose"), // require the std. mongoose module
 const UserSchema = new Schema({
 	// edit this!
 	name: {type: String, unique: true, required: true}, // all usernames must be unique
+	// configure proper use of indexes in mongodb...
 	email: {type: String, unique: true, required: true, index: true}, // 2ndary index
 	username: {type: String, unique: true, required: true}, 
-	password: {type: String, unique: false, required: true, tasks: {}}
+	password: {type: String, unique: false, required: true}
 });
 
 // create and export our User mongoose model schema
