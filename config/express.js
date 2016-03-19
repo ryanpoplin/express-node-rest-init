@@ -31,13 +31,13 @@ module.exports = function() {
 
 	// express.Router() is like mini-application on its own; only with routing functionalities though...
 	// load in our index routes
-	require("../app/routes/index.server.routes")(indexRouter);
 	const indexRouter = express.Router();
+	require("../app/routes/index.server.routes")(indexRouter);
 
 	// load in our users routes
 	// NOTE: make sure postman content-type is set to JSON
-	require("../app/routes/users.server.routes")(usersRouter); // grab the user.server.routes function
 	const usersRouter = express.Router();
+	require("../app/routes/users.server.routes")(usersRouter); // grab the user.server.routes function
 	
 	app.use("/api/index", indexRouter); // register the routes with our custom routers 
 	app.use("/api/users", usersRouter); 
