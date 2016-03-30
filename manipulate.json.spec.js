@@ -2,8 +2,9 @@
 
 const request = require("superagent");
 const expect = require("chai").expect;
-// const remove = require("./manipulate.json.js").remove;
-// const alter = require("./manipulate.json.js").alter;
+
+const remove = require("./remove.user.data");
+const alter = require("./alter.user.data");
 
 describe("express rest api server", function() {
 	     
@@ -19,27 +20,30 @@ describe("express rest api server", function() {
 	it("should confirm JSON schema output expectations", function(done) {
 		request.get("http://localhost:8080/api/users/list").end(function(err, res) {
 			const usersArr = res.body["Best Users"]["Current Best Users"];
-			// var newArr = remove(usersArr);
-			// var newerArr = alter(newArr);
+			remove(usersArr);
+			alter(usersArr);
 			usersArr.forEach(function(user) {
-				console.log(user);
 				Object.keys(user).forEach(function(key) {
 					switch (key) {
 						case "newProp":
 							expect(key).to.be.a("string");
-							console.log(key);
 							break;
 						case "quality":
 							expect(key).to.be.a("string");
-							console.log(key);
 							break;
 						case "username":
 							expect(key).to.be.a("string");
-							console.log(key);
 							break;
 						case "name":
 							expect(key).to.be.a("string");
-							console.log(key)
+							break;
+						case "arryOfValues":
+							// should never be expected to run
+							expect(key).to.be.a("asdfjkl;");
+							break;
+						case "test":
+							// should never be expected to run
+							expect(key).to.be.a("asdfjkl;");
 							break;
 						default:
 							break;
