@@ -12,9 +12,9 @@ const UserSchema = new Schema({
 	username: {type: String, unique: true, required: true}, 
 	password: {type: String, unique: false, required: true},
 	// will only show on certain documents...why?
-	test: {type: String, unique: false, required: false},
+	test: {type: String, unique: false, required: true},
 	// will show up when on all documents...why?
-	arrayOfValues: {type: Array, unique: false, required: false}
+	arrayOfValues: {type: Array, unique: false, required: true}
 });
 
 // create and export our User mongoose model schema

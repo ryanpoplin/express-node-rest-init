@@ -6,15 +6,16 @@ module.exports = function() {
 		if (err) {
 			console.log(err);
 		} else {
-			const jsonStructureAccess = res.body["Best Users"]["Current Best Users"];
-			removePropertiesFromUsersArray(jsonStructureAccess);
-			updatePropertiesFromUsersArray(jsonStructureAccess);
+			const usersArr = res.body["Best Users"]["Current Best Users"];
+			removePropertiesFromUsersArray(usersArr);
+			alterPropertiesFromUsersArray(usersArr);
 			console.log(JSON.stringify(res.body));
+			return usersArr;
 		}
 	});
 };
 
-// remove, works perfectly
+// TODO: moves these guys into their own modules so I can import them into testing and here!
 function removePropertiesFromUsersArray(users) {
 	users.forEach(function(user) {
 		Object.keys(user).forEach(function(key) {
@@ -39,7 +40,7 @@ function removePropertiesFromUsersArray(users) {
 	return users;
 }
 
-function updatePropertiesFromUsersArray(users) {
+function alterPropertiesFromUsersArray(users) {
 	users.forEach(function(user) {
 		Object.keys(user).forEach(function(key) {
 			switch (key) {
