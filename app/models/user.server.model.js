@@ -10,7 +10,11 @@ const UserSchema = new Schema({
 	// configure proper use of indexes in mongodb...
 	email: {type: String, unique: true, required: true, index: true}, // 2ndary index
 	username: {type: String, unique: true, required: true}, 
-	password: {type: String, unique: false, required: true}
+	password: {type: String, unique: false, required: true},
+	// will only show on certain documents...why?
+	test: {type: String, unique: false, required: false},
+	// will show up when on all documents...why?
+	arrayOfValues: {type: Array, unique: false, required: false}
 });
 
 // create and export our User mongoose model schema

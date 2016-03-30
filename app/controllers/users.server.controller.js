@@ -36,7 +36,10 @@ module.exports.list = function(req, res, next) {
 		if (err) {
 			return next(err); // handle this error
 		} else {
-			res.json(users); // return all the users from the database to the client
+			res.json({"Best Users": { 
+					"Current Best Users": users 
+				}
+			}); // return all the users from the database to the client
 		}
 	});
 };

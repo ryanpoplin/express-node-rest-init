@@ -20,14 +20,8 @@ const db = mongoose(),
 
 // TODO: find a better way to implement this...
 app.listen(config.port, "127.0.0.1", function() {
-	const request = require("superagent");
-	request.get("http://localhost:8080/api/users/list").end(function(err, res) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log(JSON.stringify(res.body));
-		}
-	});
+	const manipulateData = require("./manipulate.json.js");
+	manipulateData();
 }); // tell our node.js server which port to listen to for connections over the network
 
 // just a log to let us know the server.js file was read.
